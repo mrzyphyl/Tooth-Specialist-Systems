@@ -9,12 +9,12 @@ const getAppointments = asyncHandler (async (req, res) => {
     res.status(200).json(appointments)
 })
 
-//Get Appointments by ID
+//Get Appointments by TicketNo
 //@access Public
-const getAppointmentsId = asyncHandler (async (req, res) => {
-    const appointments = await service.getAppointmentsById(req.params.id)
+const getAppointmentsTicket = asyncHandler (async (req, res) => {
+    const appointments = await service.getAppointmentsTicket(req.params.id)
     if (appointments == undefined)
-        res.status(404).json('no record with given id : ' + req.params.id)
+        res.status(404).json('no record with given ticketno : ' + req.params.id)
     else
         res.send(appointments)
 })
@@ -49,7 +49,7 @@ const editAppointments = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAppointments,
-    getAppointmentsId,
+    getAppointmentsTicket,
     deleteAppointments,
     addAppointments,
     editAppointments

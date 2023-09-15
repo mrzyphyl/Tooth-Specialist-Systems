@@ -18,10 +18,12 @@ app.use('/api/appointments', require('./routes/AppointmentsRouter'))
 
 app.use(errorHandler)
 
+
+const port = 5000
 db.query("SELECT 1")
     .then(() => {
         console.log('db connection  succeeded.')
-        app.listen(3000,
-            () => console.log('server started at 3000'))
+        app.listen(port,
+            () => console.log(`server started at ${port}`))
     })
     .catch(err => console.log('db connection failed. \n' + err))

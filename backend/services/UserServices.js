@@ -5,6 +5,11 @@ module.exports.getAllUsers = async () => {
     return records;
 }
 
+module.exports.loginUsers = async (email, pass) => {
+    const [records] = await db.query("SELECT * FROM users WHERE UserEmail = ? AND UserPassword = ?", [email, pass])
+    return records;
+}
+
 module.exports.getUserById = async (id) => {
     const [[records]] = await db.query("SELECT * FROM users WHERE UserID = ?", [id])
     return records;

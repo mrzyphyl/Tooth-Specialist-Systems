@@ -5,8 +5,8 @@ module.exports.getAllAppointments = async () => {
     return records;
 }
 
-module.exports.getAppointmentsById = async (id) => {
-    const [[records]] = await db.query("SELECT * FROM book_appts WHERE AppointmentID = ?", [id])
+module.exports.getAppointmentsTicket = async (id) => {
+    const [[records]] = await db.query("SELECT * FROM book_appts WHERE AppointmentTicketNo = ?", [id])
     return records;
 }
 
