@@ -9,6 +9,16 @@ const getAppointments = asyncHandler (async (req, res) => {
     res.status(200).json(appointments)
 })
 
+//Get an Appointment
+//@access Public
+const getAnAppointment = asyncHandler (async (req, res) => {
+    const appointments = await service.getAnAppointmentId(req.params.id)
+    if (appointments == undefined)
+        res.status(404).json('no record with given id : ' + req.params.id)
+    else
+        res.send(appointments)
+})
+
 //Get Appointments by TicketNo
 //@access Public
 const getAppointmentsTicket = asyncHandler (async (req, res) => {
@@ -48,6 +58,7 @@ const editAppointments = asyncHandler(async (req, res) => {
 
 
 module.exports = {
+    getAppointments,
     getAppointments,
     getAppointmentsTicket,
     deleteAppointments,

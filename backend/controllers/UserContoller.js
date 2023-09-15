@@ -20,11 +20,11 @@ const loginUser = asyncHandler (async (req, res) => {
     }
     
     const userExist = await service.loginUsers(UserEmail, UserPassword)
-    if (userExist) {
-        res.status(200).json(userExist)
-    } else {
+    if (!userExist) {
         res.status(400)
         throw new Error('Wrong Credentials')
+    } else {
+        res.status(200).json(userExist)
     }
 })
 

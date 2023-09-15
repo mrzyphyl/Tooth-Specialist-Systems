@@ -1,0 +1,21 @@
+{
+  "name": "tooth-specialist-systems",
+  "version": "1.0.0",
+  "description": "Aims to create seamless app for appointment scheduling",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix client-app",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "react-hooks": "^1.0.1",
+    "react-icons": "^4.11.0"
+  }
+}
